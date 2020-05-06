@@ -1,0 +1,20 @@
+version: '3'
+services:
+  bun:
+    image: bun
+    networks:
+      - bunny
+      - mc
+    ports:
+      - 25565:25577
+      - 3000:3000
+      - 8887:8887
+    volumes:
+      - ./config.yml:/srv/bungee-cord/config.yml
+      - ./plugins:/srv/bungee-cord/plugins
+
+networks:
+  bunny:
+    external: true
+  mc:
+    external: true
